@@ -31,7 +31,7 @@ session_start();
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-    <title>spacecpII | Criar conta</title>
+    <title>CRIE SUA CONTA</title>
     <style>
         body {
 background-image:url("images/spaceman.gif");

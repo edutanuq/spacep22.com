@@ -57,7 +57,7 @@ header("Content-type: text/html; charset=utf-8");
         crossorigin="anonymous">
 
         <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">spaCP2</a>
+  <a class="navbar-brand" href="#"><b>SPACE.CP2</b></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -110,7 +110,7 @@ header("Content-type: text/html; charset=utf-8");
                 <div class="card">
                     <div class="card-body">
                         <a href="perfil.php?user=<?php echo $dadosUser['id'];?>"><h4 class="w3-center"><?php echo $dadosUser['nome'];?></h4></a>
-                        <p class="w3-center"><img src="img/<?php echo ($dadosUser['foto'] == '') ? 'default.jpg' : $dadosUser['foto'];?>" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+                        <p class="w3-center"><img src="img/<?php echo ($dadosUser['foto'] == '') ? 'default.jpg' : $dadosUser['foto'];?>" class="w3-circle" style="height:106px;width:106px;border-radius:50%" alt="Avatar"></p>
                         <hr>
                         <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> <?php echo ($dadosUser['profissao'] != '') ? $dadosUser['profissao'] : "Não informado";?></p>
                         <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> <?php echo ($dadosUser['cidade'] != '') ? $dadosUser['cidade'] : "Não informado";?></p>
@@ -128,11 +128,9 @@ header("Content-type: text/html; charset=utf-8");
                     <div class="card-header">
                         <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">Publique</a>
+                                <a class="nav-link active" id="posts-tab" data-toggle="tab" roles="posts" aria-selected="true">Prepare-se para decolar</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="images-tab" data-toggle="tab" role="tab" aria-controls="images" aria-selected="false" href="#images">Publique uma imagem</a>
-                            </li>
+                           
                         </ul>
                     </div>
                     <div class="card-body">
@@ -140,7 +138,7 @@ header("Content-type: text/html; charset=utf-8");
                             <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
                                 <div class="form-group">
                                 <form method="post" enctype="multipart/form-data" action="recebeUpload.php">
-                                    <textarea class="form-control" id="FormPost" maxlength="144" name="post" rows="3" placeholder="Lá vaaaamos nós..."></textarea>
+                                    <textarea class="form-control" id="FormPost" maxlength="144" name="post" rows="3" placeholder="Lá vaaaamos nós!"></textarea>
                                 </div>
 
                             </div>
@@ -159,6 +157,9 @@ header("Content-type: text/html; charset=utf-8");
                         <div class="btn-toolbar justify-content-between">
                             <div class="btn-group">
                                 <button type="submit" class="btn btn-primary" id="botaoPost" type="submit" value="Publicar" id="botaoPost">Publicar</button>
+                                <span class="input-group-btn">
+                            <input class="btn btn-default" type="file" value="Publicar" name="arquivo"
+                        </span>
 
                             </div>
                         </div>
@@ -193,7 +194,7 @@ header("Content-type: text/html; charset=utf-8");
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="mr-2">
-                                    <img class="rounded-circle" width="45" src="img/<?php echo ($dadosUser['foto'] == '') ? 'default.jpg' : $dadosUser['foto'];?>"" alt="">
+                                    <img width="45" style="border-radius:50%" src="img/<?php echo ($dadosUser['foto'] == '') ? 'default.jpg' : $dadosUser['foto'];?>"" alt="">
                                 </div>
                                 <div class="ml-2">
                                     <div class="h5 m-0"><?php echo $dadosUser['nome'];?></div>
@@ -209,12 +210,13 @@ header("Content-type: text/html; charset=utf-8");
                             <?php echo $conteudo = $row['conteudo'];?>
                         </p>
                     </div>
+                    <?php if($fotopost != '')  echo  "<img src='img/". $fotopost ."' style='width:50%;border-radius: 50%' class='w3-margin-bottom'>"; ?>
                     <form id="form_pesquisa" method="post" action="">
                     <div class="card-footer">
                         <p class="w3-margin-bottom" ><?php echo $coluna['curtidas'] ?> Curtidas</p>
                         <input type="hidden" name="id_post" value="<?php echo $id_post ?>" placeholder="">
                         <button type="submit" class="btn btn-primary" name="curtir" value="curtir"><i class="fa fa-thumbs-up"></i> Curtir</button>
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-comment"></i> Comentar</button>
+                       
                     </div>
                     </form>
 
@@ -224,34 +226,10 @@ header("Content-type: text/html; charset=utf-8");
       <?php }} ?>
 
                         <!--- \\\\\\\Post-->
-        <br><div class="card gedf-card">
-                    <div class="card-header">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="mr-2">
-                                    <img class="rounded-circle" width="45" src="img/<?php echo ($dadosUser['foto'] == '') ? 'default.jpg' : $dadosUser['foto'];?>"" alt="">
-                                </div>
-                                <div class="ml-2">
-                                    <div class="h5 m-0"><?php echo $dadosUser['nome'];?></div>
-                                </div>
-                            </div>
-                        </div>
-
+    
                     </div>
-                    <div class="card-body">
-                        <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i> <?php echo $data;?></div>
-
-                        <p class="card-text">
-                            <?php echo $conteudo = $row['conteudo'];?>
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <p class="w3-margin-bottom"><?php echo $coluna['curtidas'] ?> Curtidas</p>
-                        <input type="hidden" name="id_post" value="<?php echo $id_post ?>" placeholder="">
-                        <a href="#" class="card-link"><i class="fa fa-thumbs-up"></i> Curtir</a>
-                        <a href="#" class="card-link"><i class="fa fa-comment"></i> Comentar</a>
-                    </div>
-                </div>
+                    
+                   
                 <!-- Post /////-->
             </div>
         </div>
