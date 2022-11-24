@@ -81,7 +81,6 @@ header("Content-type: text/html; charset=utf-8");
       <li class="nav-item">
         <a class="nav-link" href="#">
           <i class="fa fa-envelope-o">
-            <span class="badge badge-danger">4</span>
           </i>
           Mensagens
         </a>
@@ -91,17 +90,19 @@ header("Content-type: text/html; charset=utf-8");
     <li class="nav-item">
         <a class="nav-link" href="#">
           <i class="fa fa-bell">
-            <span class="badge badge-info">4</span>
           </i>
         </a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar usuário" aria-label="Pesquisar usuário">
+    <form class="form-inline my-2 my-lg-0" name="form_pesquisa" id="form_pesquisa" method="post" action="">
+      <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar usuário" aria-label="Pesquisar usuário" name="pesquisaCliente" id="pesquisaCliente">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
     </form>
-  </div>
-</nav>
+  <li class="w3-hide-small w3-right"><a href="?acao=sair" class="w3-padding-large .w3-hover-white" title="Sair da conta"><img src="img/sair.png" class="w3-circle" style="height:25px;width:25px" alt="Avatar"></a></li>
+ </ul>
+</div>
+ </div>
+        </nav>
 
 
 <div class="container-fluid gedf-wrapper">
@@ -210,7 +211,7 @@ header("Content-type: text/html; charset=utf-8");
                             <?php echo $conteudo = $row['conteudo'];?>
                         </p>
                     </div>
-                    <?php if($fotopost != '')  echo  "<img src='img/". $fotopost ."' style='width:50%;border-radius: 50%' class='w3-margin-bottom'>"; ?>
+                    <?php if($fotopost != '')  echo  "<img src='img/". $fotopost ."' style='width:50%;' class='w3-margin-bottom'>"; ?>
                     <form id="form_pesquisa" method="post" action="">
                     <div class="card-footer">
                         <p class="w3-margin-bottom" ><?php echo $coluna['curtidas'] ?> Curtidas</p>
