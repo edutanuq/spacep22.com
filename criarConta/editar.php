@@ -46,6 +46,7 @@ header("Content-type: text/html; charset=utf-8");
 <!DOCTYPE html>
 <html>
 <title>Editar meu Perfil</title>
+<link rel="icon" type="image/png" href="images/favicon.png"/>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -84,9 +85,7 @@ header("Content-type: text/html; charset=utf-8");
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">
-          <i class="fa fa-envelope-o">
-            <span class="badge badge-danger">4</span>
-          </i>
+          <i class="fa fa-envelope-o"></i>
           Mensagens
         </a>
       </li>
@@ -94,9 +93,7 @@ header("Content-type: text/html; charset=utf-8");
     <ul class="navbar-nav ">
     <li class="nav-item">
         <a class="nav-link" href="#">
-          <i class="fa fa-bell">
-            <span class="badge badge-info">4</span>
-          </i>
+          <i class="fa fa-bell"></i>
         </a>
       </li>
     </ul>
@@ -140,7 +137,7 @@ header("Content-type: text/html; charset=utf-8");
                         </ul>
                     </div>
                     <div class="card-body">
-<form>
+<form method="post" enctype="multipart/form-data" action="editarUser.php">
 	<div class="form-group input-group">
 		<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
@@ -152,8 +149,6 @@ header("Content-type: text/html; charset=utf-8");
 		</div>
         <input name="snome" class="form-control" placeholder="Sobrenome" type="text">
   </div> <!-- form-group// -->
-
-
     <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-pencil"></i> </span>
@@ -167,5 +162,46 @@ header("Content-type: text/html; charset=utf-8");
 		    <input name="cidade" class="form-control" placeholder="Cidade" type="text">
 	</div> <!-- form-group// -->                                      
     <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block"> Publicar  </button>
+    <span class="input-group-btn">
+        <input class="btn btn-default" type="file" value="Publicar" name="arquivo"></input>
+    </span>
+        <input type="submit" class="btn btn-primary btn-block" value="Publicar" id="botaoPost"></button>
   </div>
+</form>
+
+
+  <script>
+// Accordion
+function myFunction(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        x.previousElementSibling.className += " w3-theme-d1";
+    } else { 
+        x.className = x.className.replace("w3-show", "");
+        x.previousElementSibling.className = 
+        x.previousElementSibling.className.replace(" w3-theme-d1", "");
+    }
+}
+
+// Used to toggle the menu on smaller screens when clicking on the menu button
+function openNav() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery_play.js"></script>
+
+
+</body>
+</html> 

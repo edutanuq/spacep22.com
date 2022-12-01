@@ -47,7 +47,9 @@ header("Content-type: text/html; charset=utf-8");
 
 <!DOCTYPE html>
 <html>
+
 <title>Página Inicial</title>
+<link rel="icon" type="image/png" href="images/favicon.png"/>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -72,7 +74,7 @@ header("Content-type: text/html; charset=utf-8");
           </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="perfil.php">
+        <a class="nav-link" href="perfil.php?user=<?php echo  $_SESSION['id_user']; ?>">
           <i class="fa fa-globe">
           </i>
           Perfil
@@ -82,7 +84,7 @@ header("Content-type: text/html; charset=utf-8");
         <a class="nav-link" href="#">
           <i class="fa fa-envelope-o">
           </i>
-          Mensagens
+          Notificações
         </a>
       </li>
     </ul>
@@ -96,9 +98,9 @@ header("Content-type: text/html; charset=utf-8");
     </ul>
     <form class="form-inline my-2 my-lg-0" name="form_pesquisa" id="form_pesquisa" method="post" action="">
       <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar usuário" aria-label="Pesquisar usuário" name="pesquisaCliente" id="pesquisaCliente">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+      <button class="btn btn-outline-success mr-sm-2" type="submit">Pesquisar</button>
     </form>
-  <li class="w3-hide-small w3-right"><a href="?acao=sair" class="w3-padding-large .w3-hover-white" title="Sair da conta"><img src="img/sair.png" class="w3-circle" style="height:25px;width:25px" alt="Avatar"></a></li>
+  <button class="btn btn-outline-danger my-2 my-sm-0"><a href="?acao=sair" title="Sair da conta"><img src="img/sair 22.png" class="w3-circle" style="height:25px;width:25px" alt="Avatar"></a></li>
  </ul>
 </div>
  </div>
@@ -160,7 +162,7 @@ header("Content-type: text/html; charset=utf-8");
                                 <button type="submit" class="btn btn-primary" id="botaoPost" type="submit" value="Publicar" id="botaoPost">Publicar</button>
                                 <span class="input-group-btn">
                             <input class="btn btn-default" type="file" value="Publicar" name="arquivo"
-                        </span>
+                                </span>
 
                             </div>
                         </div>
