@@ -57,7 +57,7 @@
   ?>
 <!-- Navbar -->
 <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#"><b>SPACE.CP2</b></a>
+  <a class="navbar-brand" href="#"><b><i class="fa fa-rocket"></i></b></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -65,32 +65,30 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-  </li>
-  <li class="nav-item"><a class="nav-link" href="#">
+        <a class="nav-link" href="#">
           <i class="fa fa-home"></i>
           Página Inicial
-          </a></li>
-          <li class="nav-item"><a class="nav-link" href="perfil.php?user=<?php echo  $_SESSION['id_user']; ?>">
+          <span class="sr-only">(current)</span>
+          </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="perfil.php?user=<?php echo  $_SESSION['id_user']; ?>">
           <i class="fa fa-globe">
           </i>
           Perfil
-        </a></li>
-        <li class="nav-item"><a class="nav-link" href="#">
-          <i class="fa fa-envelope-o">
-          </i>
-          Mensagens
-        </a></li>
-  <li class="">
-    <a href="#" class="w3-padding-large w3-hover-white" title="Notificações"><i class="fa fa-bell"></i><span class="w3-badge w3-right w3-small w3-green"><?php echo $numSol; ?></span></a>
-    <div class="w3-dropdown-content w3-white w3-card-4">
+        </a>
+      </li>
+    </ul>
+    <a href="#" class="w3-padding-large nav-link" title="Notificações"><i class="fa fa-bell"></i><span class="w3-badge w3-right w3-small w3-green"><?php echo $numSol; ?></span></a>
+    <div class="w3-dropdown-content">
     <?php while ($row = $verificaSol->fetch()) {
             $id = $row['id_solicitacao'];
             $foto = ($row['foto'] == '') ? 'default.jpg' : $row['foto'];
             $id_amigo1 = $row['id_usuario1'];
             $id_amigo2 = $row['id_usuario2'];
             $nome = $row['nome'];
-            echo  "<a href='#'></a><img src='img/". $foto ."' alt='Avatar' class='w3-left w3-circle w3-margin-right' style='width:30px'>";
-            echo $nome." Enviou uma solicitação";
+            echo  "<a href='#' ></a><img src='img/". $foto ."' alt='Avatar' class='w3-left w3-circle w3-margin-right' style='width:30px'>";
+            echo $nome." enviou uma solicitação";
             echo "<div class='w3-half'><form method='post'> <button class='w3-btn w3-green w3-btn-block w3-section' name='botao' value='1' type='submit'><i class='fa fa-check'></i></button></div>". "<div class='w3-half'><button class='w3-btn w3-red w3-btn-block w3-section' name='botao' value='0' type='submit'><i class='fa fa-remove'></i></button></div></form>";
             if (isset($_POST['botao']) && $_POST['botao'] == "0" && !empty($verificaSol) && isset($id)){
                   $solicitacao = BD::conn()->prepare("DELETE FROM solicitacoes WHERE id_solicitacao=?");
@@ -111,25 +109,18 @@
     ?>
     </div>
   </li>
-  <li class="w3-hide-small"> <form name="form_pesquisa" id="form_pesquisa" method="post" action="">
+  <form name="form_pesquisa" id="form_pesquisa" method="post" action="">
               <input type="text" name="pesquisaCliente" id="pesquisaCliente"  placeholder="Pesquisar usuario..."  class="w3-border w3-padding"/>
-        </form></li>
-  <li class="w3-hide-small w3-right"><a href="?acao=sair" class="w3-padding-large w3-hover-white" title="My Account"><img src="img/sair.png" class="w3-circle" style="height:25px;width:25px" alt="Avatar"></a></li>
-  </ul>
+        </form>
+        <button class="btn btn-outline-danger my-2 my-sm-0"><a href="?acao=sair" title="Sair da conta"><img src="img/sair 22.png" class="w3-circle" style="height:25px;width:25px" alt="Avatar"></a></li>
+ </ul>
 </div>
  </div>
         </nav>
 
 
 <!-- Navbar on small screens -->
-<div id="navDemo" class="w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:51px">
-  <ul class="w3-navbar w3-left-align w3-large w3-theme">
-    <li><a class="w3-padding-large" href="#">Link 1</a></li>
-    <li><a class="w3-padding-large" href="#">Link 2</a></li>
-    <li><a class="w3-padding-large" href="#">Link 3</a></li>
-    <li><a class="w3-padding-large" href="#">Link 4</a></li>
-  </ul>
-</div>
+
 
 
 

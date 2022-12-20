@@ -58,53 +58,7 @@ header("Content-type: text/html; charset=utf-8");
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
         crossorigin="anonymous">
 
-        <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#"><b>SPACE.CP2</b></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">
-          <i class="fa fa-home"></i>
-          Página Inicial
-          <span class="sr-only">(current)</span>
-          </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="perfil.php?user=<?php echo  $_SESSION['id_user']; ?>">
-          <i class="fa fa-globe">
-          </i>
-          Perfil
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="fa fa-envelope-o">
-          </i>
-          Notificações
-        </a>
-      </li>
-    </ul>
-    <ul class="navbar-nav ">
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="fa fa-bell">
-          </i>
-        </a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0" name="form_pesquisa" id="form_pesquisa" method="post" action="">
-      <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar usuário" aria-label="Pesquisar usuário" name="pesquisaCliente" id="pesquisaCliente">
-      <button class="btn btn-outline-success mr-sm-2" type="submit">Pesquisar</button>
-    </form>
-  <button class="btn btn-outline-danger my-2 my-sm-0"><a href="?acao=sair" title="Sair da conta"><img src="img/sair 22.png" class="w3-circle" style="height:25px;width:25px" alt="Avatar"></a></li>
- </ul>
-</div>
- </div>
-        </nav>
+        <?php require_once "header.php";?>
 
 
 <div class="container-fluid gedf-wrapper">
@@ -129,6 +83,9 @@ header("Content-type: text/html; charset=utf-8");
                 <!--- \\\\\\\Post-->
                 <div class="card gedf-card">
                     <div class="card-header">
+                    <section class="jumbotron">
+        <div id="MostraPesq"></div>
+      </section>
                         <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active" id="posts-tab" data-toggle="tab" roles="posts" aria-selected="true">Prepare-se para decolar</a>
