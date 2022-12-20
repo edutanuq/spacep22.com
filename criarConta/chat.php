@@ -132,7 +132,7 @@ header("Content-type: text/html; charset=utf-8");
 
                 
                 <?php
-                    $pegaUsuarios = BD::conn()->prepare("SELECT DISTINCT usuarios.id, nome,conteudo,fotoPost,data,foto,id_post FROM `usuarios` INNER JOIN postagens ON usuarios.id=postagens.id_usuario LEFT join amigos ON postagens.id_usuario=amigos.id_amigo1 or postagens.id_usuario=amigos.id_amigo2 WHERE id_amigo1=? or id_amigo2=? OR usuarios.id=? ORDER BY data asc");
+                    $pegaUsuarios = BD::conn()->prepare("SELECT DISTINCT usuarios.id, nome,conteudo,fotoPost,data,foto,id_post FROM `usuarios` INNER JOIN postagens ON usuarios.id=postagens.id_usuario LEFT join amigos ON postagens.id_usuario=amigos.id_amigo1 or postagens.id_usuario=amigos.id_amigo2 WHERE id_amigo1=? or id_amigo2=? OR usuarios.id=? ORDER BY data DESC");
                     $pegaCurtidas = BD::conn()->prepare("SELECT count(*) AS curtidas FROM curtidas WHERE id_post=?
 ");
                     $pegaUsuarios->execute(array($_SESSION['id_user'],$_SESSION['id_user'],$_SESSION['id_user']));
