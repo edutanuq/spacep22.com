@@ -79,7 +79,9 @@
         </a>
       </li>
     </ul>
-    <a href="#" class="w3-padding-large nav-link" title="Notificações"><i class="fa fa-bell"></i><span class="w3-badge w3-right w3-small w3-green"><?php echo $numSol; ?></span></a>
+    <ul class="navbar-nav ">
+    <li class="nav-item">
+    <a href="#" class="w3-padding-large nav-link" title="Notificações"><i class="fa fa-bell"></i><span class="w3-badge w3-right w3-small w3-green"><?php echo $numSol; ?></span></a></li>
     <div class="w3-dropdown-content">
     <?php while ($row = $verificaSol->fetch()) {
             $id = $row['id_solicitacao'];
@@ -108,12 +110,15 @@
 
     ?>
     </div>
-  </li>
-  <form name="form_pesquisa" id="form_pesquisa" method="post" action="">
-              <input type="text" name="pesquisaCliente" id="pesquisaCliente"  placeholder="Pesquisar usuario..."  class="w3-border w3-padding"/>
+  <li class="nav-item">
+  <form name="form_pesquisa" id="form_pesquisa" method="post" action="" class="form-inline my-2 my-lg-0">
+              <input type="text" name="pesquisaCliente" id="pesquisaCliente"  placeholder="Pesquisar usuario..."  class="form-control mr-sm-2"/>
         </form>
+        </li>
+        <li class="nav-item">
         <button class="btn btn-outline-danger my-2 my-sm-0"><a href="?acao=sair" title="Sair da conta"><img src="img/sair 22.png" class="w3-circle" style="height:25px;width:25px" alt="Avatar"></a></li>
- </ul>
+  </li>
+      </ul>
 </div>
  </div>
         </nav>
