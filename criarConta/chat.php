@@ -58,6 +58,13 @@ header("Content-type: text/html; charset=utf-8");
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
         crossorigin="anonymous">
 
+        <style>
+            #sticky-sidebar {
+position:fixed;
+max-width: 20%;
+}
+</style>
+
         <?php require_once "header.php";?>
 
 
@@ -191,6 +198,35 @@ header("Content-type: text/html; charset=utf-8");
                     
                    
                 <!-- Post /////-->
+                <div class="col-md-3">
+                <span class="user_online" id="<?php echo $dadosUser['id'];?>"></span>
+        <div id="users_online">
+            <ul>
+            <?php
+                $pegaUsuarios = BD::conn()->prepare("SELECT DISTINCT usuarios.id,foto,nome,horario,limite,id_amigo1,id_amigo2 FROM `usuarios` left join amigos ON usuarios.id=amigos.id_amigo1 or usuarios.id=amigos.id_amigo2 WHERE (usuarios.id != ?) AND id_amigo1=? OR id_amigo2=? AND (usuarios.id != ?)");
+                $pegaUsuarios->execute(array($_SESSION['id_user'],$_SESSION['id_user'],$_SESSION['id_user'], $_SESSION['id_user']));
+                while($row = $pegaUsuarios->fetch()){
+                    $foto = ($row['foto'] == '') ? 'default.jpg' : $row['foto'];
+                    $agora = date('Y-m-d H:i:s');
+                        $status = 'on';
+                        if($agora >= $row['limite']){
+                            $status = 'off';
+                        }
+            ?>
+                <li id="<?php echo $row['id'];?>">
+                    <div class="imgSmall"><img src="img/<?php echo $foto;?>" border="0" /></div>
+
+                        <a href="#" id="<?php echo $_SESSION['id_user'].':'.$row['id'];?>" class="comecar"><?php echo utf8_encode($row['nome']);?></a>
+                    
+                    <span id="<?php echo $row['id'];?>" class="status <?php echo $status;?>"></span>
+                </li>
+            <?php }?>
+            </ul>
+                    </div>
+
+<div id="chats">
+        </div>
+        </div>
             </div>
         </div>
     </div>
