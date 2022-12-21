@@ -198,9 +198,10 @@ max-width: 20%;
                     
                    
                 <!-- Post /////-->
-                <div class="col-md-3">
+                <div class="col-md-3 chat">
+
                 <span class="user_online" id="<?php echo $dadosUser['id'];?>"></span>
-        <div id="users_online">
+        <aside id="users_online">
             <ul>
             <?php
                 $pegaUsuarios = BD::conn()->prepare("SELECT DISTINCT usuarios.id,foto,nome,horario,limite,id_amigo1,id_amigo2 FROM `usuarios` left join amigos ON usuarios.id=amigos.id_amigo1 or usuarios.id=amigos.id_amigo2 WHERE (usuarios.id != ?) AND id_amigo1=? OR id_amigo2=? AND (usuarios.id != ?)");
@@ -222,11 +223,13 @@ max-width: 20%;
                 </li>
             <?php }?>
             </ul>
-                    </div>
+        </aside>
 
-<div id="chats">
+<aside id="chats">
+            
+        </aside>
         </div>
-        </div>
+
             </div>
         </div>
     </div>
