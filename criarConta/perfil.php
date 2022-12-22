@@ -90,8 +90,7 @@ header("Content-type: text/html; charset=utf-8");
                       <button class="btn btn-outline-success my-2 my-sm-0" title="Accept" name="botao" value="1" style="width: 260px"><i class="fa fa-check"></i></button>
               </form>
                     </div>
-                            </div>
-                            </div>
+                            
                             </div>
                     <div class="w3-half">
               <?php } else {?>
@@ -226,7 +225,7 @@ header("Content-type: text/html; charset=utf-8");
                     
                    
                 <!-- Post /////-->
-            </div>
+
         </div>
     </div>
 </html>
