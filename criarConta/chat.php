@@ -87,13 +87,14 @@ header("Content-type: text/html; charset=utf-8");
                         <a href="editar.php?user=<?php echo $dadosUser['id'];?>"><li class="list-group-item">Editar perfil</li><a>
                     </ul>
                 </div>
-                <aside id="chats">
+                
+                
+            </div>
+            
+            <aside id="chats">
             
                 
-                </aside>
-
-            </div>
-        
+            </aside>
             <div class="col-md-6 gedf-main">
             
                 <!--- \\\\\\\Post-->
