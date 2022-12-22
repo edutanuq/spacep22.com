@@ -51,11 +51,18 @@ header("Content-type: text/html; charset=utf-8");
 <title>Página Inicial</title>
 <link rel="icon" type="image/png" href="images/favicon.png"/>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+<link rel="stylesheet" href="custom.css">
 
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.6.8-fix/jquery.nicescroll.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
 <!------ Include the above in your HEAD tag ---------->
 
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
@@ -80,7 +87,13 @@ header("Content-type: text/html; charset=utf-8");
                         <a href="editar.php?user=<?php echo $dadosUser['id'];?>"><li class="list-group-item">Editar perfil</li><a>
                     </ul>
                 </div>
+                <aside id="chats">
+            
+                
+                </aside>
+
             </div>
+        
             <div class="col-md-6 gedf-main">
             
                 <!--- \\\\\\\Post-->
@@ -219,8 +232,8 @@ header("Content-type: text/html; charset=utf-8");
                         }
             ?>
 
-					<a href="#" class="list-group-item list-group-item-action border-0" id="<?php echo $row['id'];?>">
-						<div class="d-flex align-items-start">
+					<a href="#" class="list-group-item list-group-item-action border-0" id="<?php echo $row['id'];?>" class="comecar">
+						<div class="d-flex align-items-start" >
 							<img src="img/<?php echo $foto;?>" class="rounded-circle mr-1" alt="<?php echo $row['nome'];?>" width="40" height="40">
 							<div class="flex-grow-1 ml-3" id="<?php echo $_SESSION['id_user'].':'.$row['id'];?>">
                             <?php echo $row['nome'];?>
