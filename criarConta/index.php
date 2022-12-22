@@ -109,7 +109,7 @@ session_start();
 					</span>
 
 					
-						<span class="label-input100">Email</span>
+
 						<div class="wrap-input100 validate-input m-b-23" data-validate = "Digite um email válido: abc@xyz.com">
 						<input type="text" name="email" id="pesquisaCliente"  placeholder="Digite seu email" class="input100" />
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
