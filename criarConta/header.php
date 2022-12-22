@@ -80,7 +80,7 @@
     </ul>
     <ul class="navbar-nav ">
     <li class="nav-item">
-    <a href="#" class="w3-padding-large nav-link" title="Notificações"><i class="fa fa-bell"></i><span class="w3-badge w3-right w3-small w3-green"><?php echo $numSol; ?></span></a></li>
+    <a href="#" class="w3-padding-large nav-link" title="Notificações"><i class="fa fa-bell"></i><span class="badge bg-success float-right"><?php echo $numSol; ?></span></a></li>
     <div class="w3-dropdown-content">
     <?php while ($row = $verificaSol->fetch()) {
             $id = $row['id_solicitacao'];
