@@ -50,20 +50,16 @@ header("Content-type: text/html; charset=utf-8");
 
 <title>Página Inicial</title>
 <link rel="icon" type="image/png" href="images/favicon.png"/>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.6.8-fix/jquery.nicescroll.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
         crossorigin="anonymous">
-
-        <style>
-            #sticky-sidebar {
-position:fixed;
-max-width: 20%;
-}
-</style>
 
         <?php require_once "header.php";?>
 
@@ -200,10 +196,18 @@ max-width: 20%;
                 <!-- Post /////-->
                 <div class="col-md-3 chat">
 
-                <span class="user_online" id="<?php echo $dadosUser['id'];?>"></span>
-        <aside id="users_online">
-            <ul>
-            <?php
+                <div class="container p-0">
+
+		<div class="card">
+			<div class="row g-0">
+				<div class="col-12 col-lg-5 col-xl-3 border-right">
+					<div class="px-4 d-none d-md-block">
+						<div class="d-flex align-items-center">
+						</div>
+					</div>
+                    </div>
+
+                    <?php
                 $pegaUsuarios = BD::conn()->prepare("SELECT DISTINCT usuarios.id,foto,nome,horario,limite,id_amigo1,id_amigo2 FROM `usuarios` left join amigos ON usuarios.id=amigos.id_amigo1 or usuarios.id=amigos.id_amigo2 WHERE (usuarios.id != ?) AND id_amigo1=? OR id_amigo2=? AND (usuarios.id != ?)");
                 $pegaUsuarios->execute(array($_SESSION['id_user'],$_SESSION['id_user'],$_SESSION['id_user'], $_SESSION['id_user']));
                 while($row = $pegaUsuarios->fetch()){
@@ -214,23 +218,23 @@ max-width: 20%;
                             $status = 'off';
                         }
             ?>
-                <li id="<?php echo $row['id'];?>">
-                    <div class="imgSmall"><img src="img/<?php echo $foto;?>" border="0" /></div>
 
-                        <a href="#" id="<?php echo $_SESSION['id_user'].':'.$row['id'];?>" class="comecar"><?php echo utf8_encode($row['nome']);?></a>
-                    
-                    <span id="<?php echo $row['id'];?>" class="status <?php echo $status;?>"></span>
-                </li>
-            <?php }?>
-            </ul>
-        </aside>
-
-<aside id="chats">
-            
-        </aside>
+					<a href="#" class="list-group-item list-group-item-action border-0" id="<?php echo $row['id'];?>">
+						<div class="d-flex align-items-start">
+							<img src="img/<?php echo $foto;?>" class="rounded-circle mr-1" alt="<?php echo $row['nome'];?>" width="40" height="40">
+							<div class="flex-grow-1 ml-3" id="<?php echo $_SESSION['id_user'].':'.$row['id'];?>">
+                            <?php echo $row['nome'];?>
+								<div class="small"><span id="<?php echo $row['id'];?>" class="status <?php echo $status;?>" ></span> <?php echo $status;?></div> 
+							</div>
+						</div>
+					</a>
+                    <?php }?>
+        </div>
+        </div>
         </div>
 
             </div>
         </div>
     </div>
+                    
 </html>
